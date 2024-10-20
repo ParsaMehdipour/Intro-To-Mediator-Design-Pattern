@@ -1,7 +1,4 @@
 # Intro-To-Mediator-Design-Pattern
-A Simple Use Of Mediator Design Pattern
-
-
 In object-oriented programming, programs often consist of many classes.
 Business logic and computation are distributed among these classes.
 However, as more classes are added to a program, especially during maintenance and/or refactoring, the problem of communication between these classes may become more complex.
