@@ -1,15 +1,18 @@
-﻿using Demo_Library.Infra.Concrete;
-using Demo_Library.Infra.Concrete.Mediator;
+﻿using DemoLibrary.BaseComponents;
+using DemoLibrary.ConcreteComponents;
+using DemoLibrary.ConcreteMediators;
+using DemoLibrary.Interfaces;
 
-NetworkMediator mediator = new();
+IChatRoomMediator chatroom = new ChatRoom();
 
-DesktopComputer Computer = new("Computer-1", mediator);
-Server server = new("Server-1", mediator);
+User alice = new ChatUser(chatroom, "Alice");
+User bob = new ChatUser(chatroom, "Bob");
+User charlie = new ChatUser(chatroom, "Charlie");
 
-mediator.Register("computer-1", Computer);
-mediator.Register("server-1", server);
+chatroom.AddUser(alice);
+chatroom.AddUser(bob);
+chatroom.AddUser(charlie);
 
-Computer.SendCommand("server-1", "reboot");
-server.SendCommand("computer-1", "trigger-updates");
-
-Console.ReadKey();
+alice.Send("Hello, everyone!");
+bob.Send("Hi Alice, how are you?");
+charlie.Send("Hey folks, what's up?");
